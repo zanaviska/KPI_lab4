@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using IIG.FileWorker;
+using IIG.BinaryFlag;
 
 namespace lab4
 {
