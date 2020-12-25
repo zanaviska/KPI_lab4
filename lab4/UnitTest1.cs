@@ -6,9 +6,16 @@ namespace lab4
 {
     public class Tests
     {
+        private const string Server = @"DESKTOP-O7BR1H7\TRY4";
+        private const string Database = @"IIG.CoSWE.StorageDB";
+        private const bool isTruted = false;
+        private const string Login = @"coswe";
+        private const string Password = @"L}EjpfCgru9X@GLj";
+
         [SetUp]
         public void Setup()
         {
+            
         }
 
         [Test]
