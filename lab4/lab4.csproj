@@ -10,6 +10,7 @@
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="IIG.DatabaseConnectionUtils">
+      <HintPath>..\DatabaseConnectionUtils\IIG.DatabaseConnectionUtils.dll</HintPath>
+    </Reference>
     <Reference Include="IIG.FileWorker">
       <HintPath>..\FileWorker\IIG.FileWorker.dll</HintPath>
     </Reference>
