@@ -71,8 +71,8 @@ namespace lab4
 
             //test removing existing and non-existing
             Assert.IsTrue(storageDatabaseUtils.AddFile("file.txt", Encoding.Unicode.GetBytes(BaseFileWorker.ReadAll("..\\..\\..\\file.txt"))));
-            for (int i = 24; i < 1000; i++)
-                Assert.IsTrue(storageDatabaseUtils.DeleteFile(i));
+            for (int i = 27; i < 1000; i++)
+                 Assert.IsTrue(storageDatabaseUtils.DeleteFile(i));
         }
     }
 }
