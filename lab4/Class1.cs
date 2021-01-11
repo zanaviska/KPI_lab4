@@ -16,25 +16,23 @@ namespace lab4
         private const int ConnectionTimeout = 75;
         //StorageDatabaseUtils storageDatabaseUtils = new StorageDatabaseUtils(Server, Database, isTrusted, Login, Password, ConnectionTimeout);
         FlagpoleDatabaseUtils flagpoleUtils = new FlagpoleDatabaseUtils(Server, Database, isTrusted, Login, Password, ConnectionTimeout);
+        MultipleBinaryFlag mbf0 = new MultipleBinaryFlag(6, true);
+        MultipleBinaryFlag mbf1 = new MultipleBinaryFlag(6, false);
+        MultipleBinaryFlag mbf2 = new MultipleBinaryFlag(50, true);
+        MultipleBinaryFlag mbf3 = new MultipleBinaryFlag(50, false);
+        MultipleBinaryFlag mbf4 = new MultipleBinaryFlag(150, true);
+        MultipleBinaryFlag mbf5 = new MultipleBinaryFlag(150, false);
         [SetUp]
         public void Setup()
         {
-        }
-
-        [Test]
-        public void BinaryFlagTest()
-        {
-           
-            //test flag storing
-            MultipleBinaryFlag mbf0 = new MultipleBinaryFlag(6, true);
-            MultipleBinaryFlag mbf1 = new MultipleBinaryFlag(6, false);
-            MultipleBinaryFlag mbf2 = new MultipleBinaryFlag(50, true);
-            MultipleBinaryFlag mbf3 = new MultipleBinaryFlag(50, false);
-            MultipleBinaryFlag mbf4 = new MultipleBinaryFlag(150, true);
-            MultipleBinaryFlag mbf5 = new MultipleBinaryFlag(150, false);
             mbf1.SetFlag(5);
             mbf3.SetFlag(5);
             mbf5.SetFlag(5);
+        }
+
+        [Test]
+        public void BinaryFlagAddTest()
+        {
             //add from variable
             Assert.IsTrue(flagpoleUtils.AddFlag(mbf0.ToString(), mbf0.GetFlag()));
             Assert.IsTrue(flagpoleUtils.AddFlag(mbf1.ToString(), mbf1.GetFlag()));
@@ -48,6 +46,13 @@ namespace lab4
             Assert.IsTrue(flagpoleUtils.AddFlag("TTTTT", true));
             Assert.IsTrue(flagpoleUtils.AddFlag("FFFF", false));
 
+            //add inaceptable
+            Assert.IsFalse(flagpoleUtils.AddFlag("FTFAX", false));
+        }
+        
+        [Test]
+        public void getBinaryFlag()
+        {
             string view;
             //test variable added
             Assert.IsTrue(flagpoleUtils.GetFlag(3, out view, out bool? value));
@@ -78,6 +83,7 @@ namespace lab4
             Assert.IsTrue(flagpoleUtils.GetFlag(11, out view, out value));
             Assert.AreEqual("FFFF", view);
             Assert.AreEqual(false, value);
+
         }
     }
 }
